@@ -23,10 +23,10 @@ describe 'Volumes' {
         }
     }
 
-    $nonSysVols = $vols | Where DriveLetter -ne $sysDriveLetter | sort FileSystemLabel
-    $nonSysVols | % {
+    $nonSysVols = $vols | Where DriveLetter -ne $sysDriveLetter | where DriveLetter -ne $null | sort FileSystemLabel
+    $nonSysVols | foreach {
 
-        context "Non-system volume [$($_.FileSystemLabel)]" {        
+        context "Non-system volume [$($_.FileSystemLabel)]" {
 
             if ($_.FileSystemLabel -eq 'BigAlu') {
                 it 'Has [64KB] allocation unit size' { 

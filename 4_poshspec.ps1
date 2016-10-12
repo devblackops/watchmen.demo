@@ -6,8 +6,8 @@ describe 'Stuff' {
     context 'Folders and files' {
         folder 'c:\src' { should exist }
         folder 'c:\temp' { should exist }
-        file 'C:\temp\bigalu.vhd' { should exist }        
-    }
+        file 'C:\HashiCorp\Vagrant\bin\vagrant.exe' { should exist }       
+    }   
 
     context 'Services' {
         service 'dhcp' 'status' { should be 'running' }
