@@ -1,6 +1,6 @@
 WatchmenOptions {
     notifies {
-        logfile 'c:\temp\#{computername}_fails.log' -when 'onfailure'
+        logfile 'c:\temp\watchmen_9_fails.log' -when 'onfailure'
     }
 }
 
@@ -12,6 +12,6 @@ WatchmenTest 'OVF.Windows.Server' {
         FreeSystemDriveThreshold = 40000
     }
     notifies {
-        logfile 'c:\temp\#{computername}_success.log' -when 'onsuccess'
+        logfile 'c:\temp\watchmen_9_success.log' -when 'onsuccess'
     }
 }
