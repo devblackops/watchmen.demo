@@ -1,5 +1,6 @@
 
-(Get-ChildItem -Path c:\temp -Filter *.vhd -File).FullName | Mount-DiskImage -ErrorAction SilentlyContinue
+(Get-ChildItem -Path c:\temp -Filter *.vhd -File).FullName | 
+    Mount-DiskImage -ErrorAction SilentlyContinue
 $vols = Get-Volume | where DriveType -eq 'Fixed'
 
 describe 'Volumes' {
@@ -23,7 +24,8 @@ describe 'Volumes' {
         }
     }
 
-    $nonSysVols = $vols | Where DriveLetter -ne $sysDriveLetter | where DriveLetter -ne $null | sort FileSystemLabel
+    $nonSysVols = $vols | Where DriveLetter -ne $sysDriveLetter | 
+        where DriveLetter -ne $null | sort FileSystemLabel
     $nonSysVols | foreach {
 
         context "Non-system volume [$($_.FileSystemLabel)]" {
