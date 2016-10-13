@@ -4,12 +4,14 @@ WatchmenOptions {
     }
 }
 
+WatchmenTest 'OVF.Example2' {}
+
 WatchmenTest 'OVF.Windows.Server' {
     version 1.0.2
     testType 'Simple'
     fromSource 'PSGallery'
     parameters @{
-        FreeSystemDriveThreshold = 40000
+        FreeSystemDriveMBytesThreshold = 100000000000000
     }
     notifies {
         logfile 'c:\temp\watchmen_9_success.log' -when 'onsuccess'
